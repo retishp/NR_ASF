@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension xmlns="urn:newrelic-extension">
+    <instrumentation>
+        <!-- Define the method which triggers the creation of a transaction. -->
+        <tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="Background/CustomTransaction">
+          <match assemblyName="WordCount.WebService" className="WordCount.WebService.DefaultController">
+            <exactMethodMatcher methodName="Count" />
+          </match>
+	<tracerFactory name="NewRelic.Agent.Core.Tracer.Factories.BackgroundThreadTracerFactory" metricName="Background/CustomTransaction">
+          <match assemblyName="WordCount.WebService" className="WordCount.WebService.DefaultController">
+            <exactMethodMatcher methodName="AddWord" />
+          </match>
+        </tracerFactory>
+       </instrumentation>
+</extension>
